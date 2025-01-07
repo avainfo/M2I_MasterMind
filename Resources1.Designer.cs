@@ -69,7 +69,7 @@ namespace MasterMind {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Erreur:.
+        ///   Looks up a localized string similar to Erreur: .
         /// </summary>
         internal static string error {
             get {
@@ -105,7 +105,7 @@ namespace MasterMind {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Veuillez sélectionner [1] couleurs (séparer par des espace):.
+        ///   Looks up a localized string similar to Veuillez sélectionner [1] couleurs (séparer par des espace): .
         /// </summary>
         internal static string selection {
             get {

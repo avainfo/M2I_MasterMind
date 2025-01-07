@@ -5,20 +5,15 @@ namespace MasterMind;
 
 public class Program
 {
-	private static Languages _lang = null!;
+	private static ResourceManager _rm = null!;
 
 	public static void Main(string[] args)
 	{
-		ResourceManager rm = new ResourceManager("MasterMind.Resources1", typeof(Program).Assembly);
-		CultureInfo cultureInfo = new CultureInfo("es");
+		_rm = new ResourceManager("MasterMind.Resources1", typeof(Program).Assembly);
+		CultureInfo cultureInfo = new CultureInfo("en");
 		Thread.CurrentThread.CurrentUICulture = cultureInfo;
 
-		Console.WriteLine(rm.GetString("colors"));
-
-		_lang = new Languages();
-		_lang.InitializeLanguages("spanish");
-
-		string[] colors = _lang.selectedLanguageTemplate["colors"].Split(" ");
+		string[] colors = _rm.GetString("colors")!.Split(" ");
 		int tryLimit = 1;
 
 		int colorCount = TryToParse();
@@ -31,25 +26,25 @@ public class Program
 			if (CheckWin(resultOfTry)) break;
 
 			tryLimit++;
-			Console.Write(_lang.selectedLanguageTemplate["next"]);
+			Console.Write(_rm.GetString("next"));
 			Console.ReadLine();
 		}
 
 		if (tryLimit != 11) return;
 		Console.Clear();
-		Console.WriteLine(_lang.selectedLanguageTemplate["loose"] + string.Join(" ", selectedColors));
+		Console.WriteLine(_rm.GetString("loose") + string.Join(" ", selectedColors));
 	}
 
 	private static bool CheckWin(List<int> resultOfTry)
 	{
 		if (resultOfTry[0] == 1)
 		{
-			Console.WriteLine(_lang.selectedLanguageTemplate["win"]);
+			Console.WriteLine(_rm.GetString("win"));
 			return true;
 		}
 
-		Console.WriteLine(_lang.selectedLanguageTemplate["good"].Replace("[1]", $"{resultOfTry[1]}").Replace("[2]", resultOfTry[1] > 1 ? "s" : ""));
-		Console.WriteLine(_lang.selectedLanguageTemplate["well-placed"].Replace("[1]", $"{resultOfTry[2]}").Replace("[2]", resultOfTry[2] > 1 ? "s" : ""));
+		Console.WriteLine(_rm.GetString("good")!.Replace("[1]", $"{resultOfTry[1]}").Replace("[2]", resultOfTry[1] > 1 ? "s" : ""));
+		Console.WriteLine(_rm.GetString("well-placed")!.Replace("[1]", $"{resultOfTry[2]}").Replace("[2]", resultOfTry[2] > 1 ? "s" : ""));
 		return false;
 	}
 
@@ -73,7 +68,7 @@ public class Program
 		}
 		catch (Exception e)
 		{
-			Console.WriteLine(_lang.selectedLanguageTemplate["error"] + e.Message);
+			Console.WriteLine(_rm.GetString("error") + e.Message);
 			return 10;
 		}
 	}
@@ -112,10 +107,10 @@ public class Program
 		int i = 1;
 		foreach (string color in colors)
 		{
-			Console.WriteLine($"{i++}. {color}");
+			Console.WriteLine($@"{i++}. {color}");
 		}
 
-		Console.Write(_lang.selectedLanguageTemplate["selection"].Replace("[1]", $"{x}"));
+		Console.Write(_rm.GetString("selection")!.Replace("[1]", $"{x}"));
 		string[] answer = (Console.ReadLine() ?? "").Split(" ");
 		List<string> filteredAnswer = [];
 		foreach (var s in answer)

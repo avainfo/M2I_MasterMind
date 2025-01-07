@@ -18,12 +18,12 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
 
-    <data name="colors">Rouge Bleu Jaune Orange Vert Violet Rose</data>
-    <data name="next">Appuyez sur Entrée pour continuer</data>
-    <data name="loose">Vous venez de perdre, la bonne réponse était:</data>
-    <data name="win">Bravo vous avez gagné !</data>
-    <data name="good">Vous avez [1] bon[2]</data>
-    <data name="well-placed">Vous avez [1] bien placé[2]</data>
-    <data name="error">Erreur:</data>
-    <data name="selection">Veuillez sélectionner [1] couleurs (séparer par des espace):</data>
+    <data name="colors"><value>Rouge Bleu Jaune Orange Vert Violet Rose</value></data>
+    <data name="next"><value>Appuyez sur Entrée pour continuer</value></data>
+    <data name="loose"><value>Vous venez de perdre, la bonne réponse était:</value></data>
+    <data name="win"><value>Bravo vous avez gagné !</value></data>
+    <data name="good"><value>Vous avez [1] bon[2]</value></data>
+    <data name="well-placed"><value>Vous avez [1] bien placé[2]</value></data>
+    <data name="error"><value>Erreur: </value></data>
+    <data name="selection"><value>Veuillez sélectionner [1] couleurs (séparer par des espace): </value></data>
 </root>
