@@ -60,7 +60,7 @@ namespace MasterMind {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rouge Bleu Jaune Orange Vert Violet Rose.
+        ///   Looks up a localized string similar to Rouge,Bleu,Jaune,Orange,Vert,Violet,Rose.
         /// </summary>
         internal static string colors {
             get {

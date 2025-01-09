@@ -11,6 +11,7 @@ public class Program
 		MySqlConnection con = new MySqlConnection(connectionString);
 
 		con.Open();
+		
 		if (con.State == ConnectionState.Open) Console.WriteLine(@"Connexion réussie !");
 
 		MySqlCommand query = new MySqlCommand("SELECT * FROM Clients", con);
@@ -24,7 +25,9 @@ public class Program
 		}
 
 		MySqlCommand query2 = new MySqlCommand(
-			"insert into Clients (lastname, firstname, email) value ('xxx', 'xxx', 'xxx@xxx.xxx')", con);
+			"insert into Clients (lastname, firstname, email) value ('xxx', 'xxx', 'xxx@xxx.xxx')",
+			con
+		);
 
 		int y = query2.ExecuteNonQuery();
 		Console.WriteLine(y);

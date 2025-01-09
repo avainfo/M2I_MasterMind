@@ -10,7 +10,7 @@ public class MasterMind
 	public static void Game(string[] args)
 	{
 		_rm = new ResourceManager("MasterMind.Resources1", typeof(MasterMind).Assembly);
-		CultureInfo cultureInfo = new CultureInfo("en");
+		CultureInfo cultureInfo = new CultureInfo("es");
 		Thread.CurrentThread.CurrentUICulture = cultureInfo;
 
 		string[] colors = _rm.GetString("colors")!.Split(" ");
@@ -64,12 +64,12 @@ public class MasterMind
 	{
 		try
 		{
-			return int.Parse(Console.ReadLine() ?? "10");
+			return int.Parse(Console.ReadLine() ?? "4");
 		}
 		catch (Exception e)
 		{
 			Console.WriteLine(_rm.GetString("error") + e.Message);
-			return 10;
+			return 4;
 		}
 	}
 
@@ -81,7 +81,7 @@ public class MasterMind
 	/// <returns>Retourne un tableau de 3 int:
 	///	<br/>	- Succès
 	///	<br/>	- Bon
-	///	<br/>	- bien placé
+	///	<br/>	- Bien placé
 	/// </returns>
 	private static List<int> CheckTry(List<string> answer, List<string> playerTry)
 	{
@@ -101,7 +101,7 @@ public class MasterMind
 		return [success, good, wellPlaced];
 	}
 
-	private static List<string> ShowColorMenu(string[] colors, int x)
+	private static List<string> ShowColorMenu(string[] colors, int colorCount)
 	{
 		Console.Clear();
 		int i = 1;
@@ -110,8 +110,9 @@ public class MasterMind
 			Console.WriteLine($@"{i++}. {color}");
 		}
 
-		Console.Write(_rm.GetString("selection")!.Replace("[1]", $"{x}"));
+		Console.Write(_rm.GetString("selection")!.Replace("[1]", $"{colorCount}"));
 		string[] answer = (Console.ReadLine() ?? "").Split(" ");
+
 		List<string> filteredAnswer = [];
 		foreach (var s in answer)
 		{
